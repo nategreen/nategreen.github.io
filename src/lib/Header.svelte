@@ -8,11 +8,11 @@
 			url: '/',
 			section: 'work'
 		},
-		{
-			text: 'About',
-			url: '/about',
-			section: 'about'
-		},
+		// {
+		// 	text: 'About',
+		// 	url: '/about',
+		// 	section: 'about'
+		// },
 		{
 			text: 'Résumé',
 			url: '/Nate-Green-Resume.pdf',

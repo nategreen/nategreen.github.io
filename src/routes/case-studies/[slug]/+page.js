@@ -1,0 +1,49 @@
+import { gql, request } from 'graphql-request';
+
+export async function load({ params }) {
+  const caseStudies = await request(
+    "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clnhty2q88bul01uhf5m5dqrj/master",
+    gql`{
+      caseStudy(where: {slug: "${params.slug}"}) {
+        id
+        title
+        client
+        startDate
+        endDate
+        slug
+        content {
+          ... on TextContent {
+            content
+          }
+          ... on Figure {
+            asset {
+              url
+              width
+              height
+              altText
+            }
+            bleed
+            caption
+            style
+          }
+        }
+        relatedCaseStudy {
+          id
+          title
+          client
+          startDate
+          endDate
+          slug
+          cta
+          summary
+          cover {
+            url
+            altText
+          }
+        }
+      }
+    }`
+  );
+
+  return caseStudies;
+}

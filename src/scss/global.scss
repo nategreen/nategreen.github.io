@@ -1,0 +1,46 @@
+@use 'src/scss/reset' as reset;
+@use 'src/scss/tokens' as token;
+@import 'libertad';
+
+html,
+body {
+  margin: unset;
+  padding: unset;
+  font-family: 'Libertad', sans-serif;
+  background: token.$bg;
+  color: token.$text;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include reset.heading;
+  font-weight: bold;
+}
+
+@mixin dark {
+  --contrast-boost: white;
+  --contrast-cut: black;
+  --bg: color-mix(in oklab, white 5%, #{token.$black});
+  --text: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.theme-light) {
+    @include dark;
+  }
+}
+
+body.theme-dark {
+  @include dark;
+}

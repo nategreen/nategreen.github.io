@@ -1,0 +1,36 @@
+@mixin link() {
+  text-decoration: none;
+  font-family: unset;
+  color: unset;
+}
+
+@mixin list() {
+  list-style: none;
+  padding: unset;
+  margin: unset;
+}
+
+@mixin heading() {
+  font-size: unset;
+  font-weight: unset;
+  line-height: unset;
+  margin: unset;
+  padding: unset;
+}
+
+@mixin hr() {
+  margin: unset;
+  padding: unset;
+}
+
+@mixin p() {
+  margin: unset;
+}
+
+@mixin button() {
+  appearance: none;
+  font-family: unset;
+  background: unset;
+  border: unset;
+  cursor: unset;
+}

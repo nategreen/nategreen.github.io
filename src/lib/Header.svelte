@@ -18,14 +18,14 @@
 			url: '/Nate-Green-Resume.pdf',
 			section: 'resume'
 		},
-		{
-			text: 'Figma',
-			url: 'https://www.figma.com/@nategreen'
-		},
-		{
-			text: 'Github',
-			url: 'https://github.com/nategreen'
-		},
+		// {
+		// 	text: 'Figma',
+		// 	url: 'https://www.figma.com/@nategreen'
+		// },
+		// {
+		// 	text: 'Github',
+		// 	url: 'https://github.com/nategreen'
+		// },
 	];
 </script>
 

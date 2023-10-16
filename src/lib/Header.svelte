@@ -17,7 +17,15 @@
 			text: 'Résumé',
 			url: '/Nate-Green-Resume.pdf',
 			section: 'resume'
-		}
+		},
+		{
+			text: 'Figma',
+			url: 'https://www.figma.com/@nategreen'
+		},
+		{
+			text: 'Github',
+			url: 'https://github.com/nategreen'
+		},
 	];
 </script>
 
@@ -142,6 +150,10 @@
 
 		@media (min-width: $bp) {
 			gap: 16px;
+		}
+
+		@media (min-width: 60rem) {
+			gap: 24px;
 		}
 
 		li {

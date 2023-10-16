@@ -103,6 +103,8 @@
     img {
       width: 100%;
       height: auto;
+      max-height: 40vh;
+      object-fit: contain;
     }
   }
 

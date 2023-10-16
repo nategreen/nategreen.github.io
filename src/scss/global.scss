@@ -33,6 +33,7 @@ h6 {
   --contrast-cut: black;
   --bg: color-mix(in oklab, white 5%, #{token.$black});
   --text: white;
+  --blue: color-mix(in oklab, rgb(0, 255, 255) 33.333%, #0080FF);
 }
 
 @media (prefers-color-scheme: dark) {

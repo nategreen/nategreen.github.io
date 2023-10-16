@@ -36,6 +36,12 @@ export async function load() {
           }
           url
         }
+        stackExchangeItems {
+          title
+          description
+          url
+          type
+        }
       }
     `
   );

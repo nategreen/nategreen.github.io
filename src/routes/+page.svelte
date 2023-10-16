@@ -24,6 +24,35 @@
 	</div>
 	{/each}
 </section>
+<section class="ux-stack-exchange">
+	<h2 class="title">Questions and Answers on <a href="https://ux.stackexchange.com/users/59321/nate-green">UX StackExchange</a></h2>
+	<div class="list answers">
+		<h3>Answers</h3>
+		<ul>
+			{#each data.stackExchangeItems.filter((i) => i.type === "answer") as item}
+				<li class="item answer">
+					<a href={item.url}>
+						<h4 class="title">{item.title}</h4>
+					</a>
+					<SvelteMarkdown source={item.description} />
+				</li>
+			{/each}
+		</ul>
+	</div>
+	<div class="list questions">
+		<h3>Questions</h3>
+		<ul>
+			{#each data.stackExchangeItems.filter((i) => i.type === "question") as item}
+				<li class="item question">
+					<a href={item.url}>
+						<h4 class="title">{item.title}</h4>
+					</a>
+					<SvelteMarkdown source={item.description} />
+				</li>
+			{/each}
+		</ul>
+	</div>
+</section>
 
 <style lang="scss">
 	@use 'src/scss/tokens' as token;
@@ -34,9 +63,11 @@
 		margin-inline: var(--page-margins);
 	}
 
-	.figma-community {
+	.figma-community,
+	.ux-stack-exchange {
 		display: grid;
 		grid-column-gap: 16px;
+		grid-row-gap: 16px;
 		grid-auto-rows: auto;
 		grid-auto-flow: row;
 		grid-template-columns: 1fr;
@@ -51,8 +82,17 @@
 		h2 {
 			font-size: 1.75rem;
 			line-height: 1.25;
-			margin-block-end: 16px;
 			grid-column: 1 / -1;
+		}
+
+		a {
+			@include reset.link;
+			cursor: pointer;
+			color: token.$link;
+
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 
 		.resource {
@@ -63,9 +103,42 @@
 		}
 	}
 
+	.ux-stack-exchange {
+		.list {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		h3 {
+			@include reset.heading;
+			font-size: 1.5rem;
+			font-weight: 700;
+		}
+		ul {
+			@include reset.list;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		
+		li {
+			@include reset.list-item;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		
+		h4 {
+			@include reset.heading;
+			font-size: 1.25rem;
+		}
+	}
+
 	@container (min-width: 40rem) {
-		.figma-community {
+		.figma-community,
+		.ux-stack-exchange {
 			grid-template-columns: 1fr 1fr;
+		grid-column-gap: 32px;
 			grid-auto-flow: row;
 		}
 	}

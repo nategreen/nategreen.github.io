@@ -36,11 +36,11 @@
         <div class="meta">
           <span class="client">{client}</span>
           <div class="date-range">
-            <Time timestamp={startDate} format="YYYY" /> –
-            {#if endDate}
-              <Time timestamp={endDate} format="YYYY" />
-            {:else}
-              <span class="end">Present</span>
+            <Time timestamp={startDate} format="YYYY" />
+            {#if !endDate}
+              – <span class="end">Present</span>
+            {:else if startDate.slice(0,4) != endDate.slice(0,4)}
+              –<Time timestamp={endDate} format="YYYY" />
             {/if}
           </div>
         </div>

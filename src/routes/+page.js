@@ -15,7 +15,12 @@ export async function load() {
           cta
           summary
           cover {
-            url
+            url(
+              transformation: {
+                image: { resize: { width: 1000, fit: clip }}
+                validateOptions: true
+              }
+            )
             altText
           }
           content {

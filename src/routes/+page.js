@@ -5,7 +5,7 @@ export async function load() {
     'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clnhty2q88bul01uhf5m5dqrj/master',
     gql`
       {
-        caseStudies {
+        caseStudies(orderBy: endDate_DESC, stage: PUBLISHED) {
           id
           title
           client
@@ -17,7 +17,7 @@ export async function load() {
           cover {
             url(
               transformation: {
-                image: { resize: { width: 1000, fit: clip }}
+                image: { resize: { width: 1000, fit: clip } }
                 validateOptions: true
               }
             )

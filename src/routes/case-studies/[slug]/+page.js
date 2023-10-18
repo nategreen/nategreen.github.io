@@ -26,6 +26,11 @@ export async function load({ params }) {
             caption
             style
           }
+          ... on Callout {
+            type
+            title
+            content
+          }
         }
         relatedCaseStudy {
           id
@@ -37,8 +42,24 @@ export async function load({ params }) {
           cta
           summary
           cover {
-            url
+            url(
+              transformation: {
+                image: { resize: { width: 1000, fit: clip } }
+                validateOptions: true
+              }
+            )
             altText
+          }
+          content {
+            ... on TextContent {
+              id
+            }
+            ... on Figure {
+              id
+            }
+            ... on Callout {
+              id
+            }
           }
         }
       }

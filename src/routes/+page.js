@@ -30,6 +30,9 @@ export async function load() {
             ... on Figure {
               id
             }
+            ... on Callout {
+              id
+            }
           }
         }
         figmaCommunityResources {

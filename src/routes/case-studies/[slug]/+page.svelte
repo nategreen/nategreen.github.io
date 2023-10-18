@@ -16,8 +16,8 @@
         <Time timestamp={data.caseStudy.startDate} format="YYYY" />
         {#if !data.caseStudy.endDate}
           – <span class="end">Present</span>
-        {:else if data.caseStudy.startDate.slice(0,4) != data.caseStudy.endDate.slice(0,4)}
-          –<Time timestamp={data.caseStudy.endDate} format="YYYY" />
+        {:else if data.caseStudy.startDate.slice(0, 4) != data.caseStudy.endDate.slice(0, 4)}
+          – <Time timestamp={data.caseStudy.endDate} format="YYYY" />
         {/if}
       </div>
     </div>
@@ -40,12 +40,6 @@
     {/if}
   {/each}
 </article>
-
-{#if data.relatedCaseStudy}
-  <nav class="related">
-    <CaseStudy {...data.relatedCaseStudy} />
-  </nav>
-{/if}
 
 <style lang="scss">
   @use 'src/scss/reset' as reset;

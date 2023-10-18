@@ -68,7 +68,6 @@
 
 	img {
 		max-height: 40vmin;
-		min-height: 30vmin;
 		width: auto;
 		max-width: 100%;
 		height: auto;

@@ -13,11 +13,11 @@
     <div class="meta">
       <span class="client">{data.caseStudy.client}</span>
       <div class="date-range">
-        <Time timestamp={data.caseStudy.startDate} format="YYYY" /> –
-        {#if data.caseStudy.endDate}
-          <Time timestamp={data.caseStudy.endDate} format="YYYY" />
-        {:else}
-          <span class="end">Present</span>
+        <Time timestamp={data.caseStudy.startDate} format="YYYY" />
+        {#if !data.caseStudy.endDate}
+          – <span class="end">Present</span>
+        {:else if data.caseStudy.startDate.slice(0,4) != data.caseStudy.endDate.slice(0,4)}
+          –<Time timestamp={data.caseStudy.endDate} format="YYYY" />
         {/if}
       </div>
     </div>

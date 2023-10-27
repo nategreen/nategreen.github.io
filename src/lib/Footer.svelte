@@ -4,7 +4,7 @@
 
 <footer>
 	<small>©<Time format="YYYY" /> Nate Green.</small>
-	<small>Handwritten in <a href="https://svelte.dev">Svelte</a>, with <a href="https://hygraph.com">Hygraph</a> for content and <a href="https://pages.github.com">Github Pages</a> for hosting.</small>
+	<small><a href="https://github.com/nategreen/nategreen.github.io">Handwritten</a> in <a href="https://svelte.dev">Svelte</a>, with <a href="https://hygraph.com">Hygraph</a> for content and <a href="https://pages.github.com">Github Pages</a> for hosting.</small>
 </footer>
 
 <style lang="scss">

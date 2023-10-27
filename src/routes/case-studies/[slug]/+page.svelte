@@ -7,6 +7,10 @@
   export let data;
 </script>
 
+<svelte:head>
+	<title>{data.caseStudy.title} | Nate Green | UX Designer</title>
+</svelte:head>
+
 <article>
   <header>
     <h1 class="title">{data.caseStudy.title}</h1>

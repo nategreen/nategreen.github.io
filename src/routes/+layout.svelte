@@ -12,6 +12,10 @@
   });
 </script>
 
+<svelte:head>
+	<title>Work | Nate Green | UX Designer</title>
+</svelte:head>
+
 <div class="wrapper">
   <div class="content">
     <Header />
@@ -53,7 +57,7 @@
     flex-direction: column;
     perspective: 1px;
     height: 100%;
-    overflow: auto;
+    overflow: hidden auto;
   }
 
   .content {

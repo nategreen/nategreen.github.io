@@ -57,6 +57,8 @@
     flex-direction: column;
     perspective: 1px;
     height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
     overflow: hidden auto;
   }
 

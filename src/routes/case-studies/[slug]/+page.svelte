@@ -2,13 +2,12 @@
   import SvelteMarkdown from 'svelte-markdown';
   import Time from 'svelte-time';
   import Figure from './Figure.svelte';
-  import CaseStudy from '../../CaseStudy.svelte';
 
   export let data;
 </script>
 
 <svelte:head>
-	<title>{data.caseStudy.title} | Nate Green | UX Designer</title>
+  <title>{data.caseStudy.title} | Nate Green | UX Designer</title>
 </svelte:head>
 
 <article>
@@ -70,38 +69,38 @@
   .text {
     align-self: center;
     margin-block: 1rem;
+  
+  :global(p) {
+    margin-block: unset;
+    margin-block-end: 1rem;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
 
-    :global(p) {
-      margin-block: unset;
-      margin-block-end: 1rem;
-      font-size: 1rem;
-      line-height: 1.75;
-    }
+  :global(h2) {
+    font-size: 1.75rem;
+    margin-block-end: 1rem;
+  }
 
-    :global(h2) {
-      font-size: 1.75rem;
-      margin-block-end: 1rem;
-    }
+  :global(h3) {
+    font-size: 1.5rem;
+    margin-block-end: 1rem;
+  }
 
-    :global(h3) {
-      font-size: 1.5rem;
-      margin-block-end: 1rem;
-    }
+  :global(h4) {
+    font-size: 1.375rem;
+    margin-block-end: 1rem;
+  }
 
-    :global(h4) {
-      font-size: 1.375rem;
-      margin-block-end: 1rem;
-    }
+  :global(h5) {
+    font-size: 1.25rem;
+    margin-block-end: 1rem;
+  }
 
-    :global(h5) {
-      font-size: 1.25rem;
-      margin-block-end: 1rem;
-    }
-
-    :global(h6) {
-      font-size: 1.125rem;
-      margin-block-end: 1rem;
-    }
+  :global(h6) {
+    font-size: 1.125rem;
+    margin-block-end: 1rem;
+}
   }
 
   h1 {

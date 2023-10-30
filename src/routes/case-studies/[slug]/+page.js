@@ -32,36 +32,6 @@ export async function load({ params }) {
             content
           }
         }
-        relatedCaseStudy {
-          id
-          title
-          client
-          startDate
-          endDate
-          slug
-          cta
-          summary
-          cover {
-            url(
-              transformation: {
-                image: { resize: { width: 1000, fit: clip } }
-                validateOptions: true
-              }
-            )
-            altText
-          }
-          content {
-            ... on TextContent {
-              id
-            }
-            ... on Figure {
-              id
-            }
-            ... on Callout {
-              id
-            }
-          }
-        }
       }
     }`
   );

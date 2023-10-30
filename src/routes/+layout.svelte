@@ -41,10 +41,6 @@
     @media (min-width: 60rem) {
       --page-margins: calc(1rem + 10vmin);
     }
-
-    // @media (min-width: 100rem) {
-    //   --page-margins: 12rem;
-    // }
   }
 
   html,

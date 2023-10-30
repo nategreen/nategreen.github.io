@@ -2,6 +2,7 @@
   import Copy from '$lib/Copy.svelte';
   import Button from '../lib/Button.svelte';
   import SvelteMarkdown from 'svelte-markdown';
+  import { CldImage } from 'svelte-cloudinary';
   import Time from 'svelte-time';
   export let title;
   export let cta = 'See more';
@@ -12,6 +13,7 @@
   export let endDate;
   export let summary;
   export let content;
+  export let cloudinaryCover;
   let url = `/case-studies/${slug}`;
 
   let ctaDisabled = () => {
@@ -27,7 +29,7 @@
   <div class="row">
     {#if cover.url}
       <div class="image">
-        <img src={cover.url} alt={cover.altText} />
+        <CldImage src={cloudinaryCover.public_id} {...cloudinaryCover} alt={cover.alt} sizes="40vh" />
       </div>
     {/if}
     <div class="description">

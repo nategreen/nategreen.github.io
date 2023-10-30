@@ -14,6 +14,7 @@ export async function load() {
           slug
           cta
           summary
+          cloudinaryCover
           cover {
             url(
               transformation: {

@@ -10,10 +10,26 @@
       document.body.classList.add(`theme-${value}`);
     }
   });
+
+  // Hotjar Tracking Code for https://nategreen.work
+  (function (h, o, t, j, a, r) {
+      h.hj =
+        h.hj ||
+        function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+      h._hjSettings = { hjid: 3714633, hjsv: 6 };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script');
+      r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+
 </script>
 
 <svelte:head>
-	<title>Work | Nate Green | UX Designer</title>
+  <title>Work | Nate Green | UX Designer</title>
 </svelte:head>
 
 <div class="wrapper">
@@ -35,8 +51,7 @@
   @use 'src/scss/tokens' as token;
 
   :root {
-    --page-margins: calc(.5rem + 5vmin);
-		
+    --page-margins: calc(0.5rem + 5vmin);
 
     @media (min-width: 60rem) {
       --page-margins: calc(1rem + 10vmin);

@@ -11,8 +11,14 @@
     }
   });
 
-  // Hotjar Tracking Code for https://nategreen.work
-  (function (h, o, t, j, a, r) {
+  
+</script>
+
+<svelte:head>
+  <title>Work | Nate Green | UX Designer</title>
+  <!-- Hotjar Tracking Code for https://nategreen.work -->
+  <script>
+    (function (h, o, t, j, a, r) {
       h.hj =
         h.hj ||
         function () {
@@ -25,11 +31,7 @@
       r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
       a.appendChild(r);
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-
-</script>
-
-<svelte:head>
-  <title>Work | Nate Green | UX Designer</title>
+  </script>
 </svelte:head>
 
 <div class="wrapper">

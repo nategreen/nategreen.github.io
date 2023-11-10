@@ -12,16 +12,18 @@
     name="theme"
     id="theme-auto"
     class="theme auto"
-    aria-label="Auto"
+    aria-label="Auto theme"
     value="auto"
     bind:group={selectedTheme}
+    title="Auto theme"
   />
   <input
     type="radio"
     name="theme"
     id="theme-light"
     class="theme light"
-    aria-label="Light"
+    aria-label="Light theme"
+    title="Light theme"
     value="light"
     bind:group={selectedTheme}
   />
@@ -30,7 +32,8 @@
     name="theme"
     id="theme-dark"
     class="theme dark"
-    aria-label="Dark"
+    aria-label="Dark theme"
+    title="Dark theme"
     value="dark"
     bind:group={selectedTheme}
   />

@@ -22,18 +22,18 @@
       },
       links: {
         enable: true,
-        color: '#26D97FAA',
+        color: '#26D97F',
         distance: 150
       },
       move: {
         enable: true,
-        speed: 0.5
+        speed: 0.375
       },
       number: {
         density: {
-          enable: true,
+          enable: true
         },
-        value: 150,
+        value: 200
       },
       detectRetina: true
     },
@@ -44,9 +44,9 @@
           number: { value: 25 },
           links: { distance: 50 }
         }
-      },
+      }
     ],
-    fullScreen: false,
+    fullScreen: false
   };
 
   let particlesInit = async (engine) => {
@@ -56,6 +56,7 @@
 
 <svelte:head>
   <title>Work | Nate Green | UX Designer</title>
+  <!-- Hotjar Tracking Code for https://nategreen.work -->
   <!-- Hotjar Tracking Code for https://nategreen.work -->
   <!-- Hotjar Tracking Code for https://nategreen.work -->
   <!-- Hotjar Tracking Code for https://nategreen.work -->
@@ -135,9 +136,11 @@
       content: '';
       width: 100%;
       height: 100%;
+      top: 0;
+      left: 0;
       position: fixed;
       z-index: 1;
-      background: linear-gradient(to top, transparent, var(--bg));
+      background: linear-gradient(to top, transparent, transparent 10%, token.$bg);
     }
   }
 </style>

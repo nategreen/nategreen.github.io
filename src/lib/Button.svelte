@@ -3,8 +3,8 @@
 	import Icon from './Icon.svelte';
 
 	export let label;
-	export let url;
-	export let icon;
+	export let url = null
+	export let icon = null;
   export let variant = "solid";
 	export let disabled = false;
 	let element;
@@ -93,6 +93,10 @@
 		transform-style: preserve-3d;
 		transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
 
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
+
     &.variant-text {
       background: transparent;
       color: token.$black;
@@ -110,6 +114,11 @@
 			background: token.$green;
 			z-index: 1;
 			transition: background 0.125s ease-in-out, left 0.5s ease-in-out;
+
+			@media (prefers-reduced-motion) {
+				opacity: 0;
+				transition: none;
+			}
 		}
 
 		&:hover {
@@ -117,6 +126,10 @@
 
 			&::before {
 				left: -50%;
+
+				@media (prefers-reduced-motion) {
+					opacity: 1;
+				}
 			}
 		}
 

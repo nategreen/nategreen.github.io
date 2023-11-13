@@ -3,6 +3,7 @@
   import Footer from '$lib/Footer.svelte';
   import { theme } from '../stores/theme';
   import { browser } from '$app/environment';
+  import Particles from 'svelte-particles';
 
   theme.subscribe((value) => {
     if (browser) {
@@ -11,11 +12,53 @@
     }
   });
 
-  
+  import { loadSlim } from 'tsparticles-slim'; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
+
+  let particlesConfig = {
+    particles: {
+      size: { value: 2 },
+      color: {
+        value: '#26D97F'
+      },
+      links: {
+        enable: true,
+        color: '#26D97FAA',
+        distance: 150
+      },
+      move: {
+        enable: true,
+        speed: 0.5
+      },
+      number: {
+        density: {
+          enable: true,
+        },
+        value: 150,
+      },
+      detectRetina: true
+    },
+    responsive: [
+      {
+        maxWidth: 640,
+        options: {
+          number: { value: 25 },
+          links: { distance: 50 }
+        }
+      },
+    ],
+    fullScreen: false,
+  };
+
+  let particlesInit = async (engine) => {
+    await loadSlim(engine);
+  };
 </script>
 
 <svelte:head>
   <title>Work | Nate Green | UX Designer</title>
+  <!-- Hotjar Tracking Code for https://nategreen.work -->
+  <!-- Hotjar Tracking Code for https://nategreen.work -->
+  <!-- Hotjar Tracking Code for https://nategreen.work -->
   <!-- Hotjar Tracking Code for https://nategreen.work -->
   <script>
     (function (h, o, t, j, a, r) {
@@ -42,10 +85,7 @@
     </main>
     <Footer />
   </div>
-  <div class="bg-circle one" aria-hidden="true" />
-  <div class="bg-circle two" aria-hidden="true" />
-  <div class="bg-circle three" aria-hidden="true" />
-  <div class="bg-circle four" aria-hidden="true" />
+  <Particles options={particlesConfig} id="particle-bg" class="bg" {particlesInit} />
 </div>
 
 <style global lang="scss">
@@ -60,27 +100,16 @@
     }
   }
 
-  html,
-  body {
-    height: 100%;
-  }
-
   .wrapper {
     display: flex;
     flex-direction: column;
-    perspective: 1px;
-    height: 100%;
-    max-width: 100vw;
-    max-height: 100vh;
-    overflow: hidden auto;
   }
 
   .content {
-    display: flex;
-    flex-direction: column;
     contain: paint;
     flex-grow: 1;
     container-type: inline-size;
+    z-index: 1;
   }
 
   main {
@@ -89,32 +118,26 @@
     flex-grow: 1;
   }
 
-  .bg-circle {
+  .bg {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vmax;
-    aspect-ratio: 1;
-    border-radius: 100%;
-    transform-style: preserve-3d;
-    transform: translate3d(-220vmax, -200vmax, -3px) scale(4);
-    border: 1px solid color-mix(in oklab, token.$line-bright 33.333%, transparent);
-    z-index: -1;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: 0;
+    opacity: 0.25;
 
-    &.two {
-      transform: translate3d(-200vmax, -110vmax, -2px) scale(3);
+    @media (prefers-reduced-motion) {
+      display: none;
     }
 
-    &.three {
-      left: unset;
-      right: 0;
-      transform: translate3d(110vmax, 120vmax, -1px) scale(2);
-    }
-
-    &.four {
-      left: unset;
-      right: 0;
-      transform: translate3d(120vmax, 200vmax, -2px) scale(3);
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      z-index: 1;
+      background: linear-gradient(to top, transparent, var(--bg));
     }
   }
 </style>

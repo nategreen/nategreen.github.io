@@ -11,7 +11,10 @@
     }
   }
 
-  function clearExtraJobs() { extraJobs = []; }
+  function clearExtraJobs() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    extraJobs = [];
+  }
 </script>
 
 <section class="intro">

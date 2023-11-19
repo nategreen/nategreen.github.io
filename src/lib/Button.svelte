@@ -80,6 +80,7 @@
 		position: relative;
 		font-family: 'Libertad', sans-serif;
 		font-size: 1rem;
+    line-height: 1.25;
 		font-weight: 700;
 		border-radius: 4px;
 		padding-block: 8px;
@@ -99,7 +100,7 @@
 
     &.variant-text {
       background: transparent;
-      color: token.$black;
+      color: token.$text;
       padding-inline: 0.5rem;
     }
 

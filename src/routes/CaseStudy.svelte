@@ -1,6 +1,6 @@
 <script>
   import Copy from '$lib/Copy.svelte';
-  import Button from '../lib/Button.svelte';
+  import Button from '$lib/Button.svelte';
   import SvelteMarkdown from 'svelte-markdown';
   import { CldImage } from 'svelte-cloudinary';
   import Time from 'svelte-time';
@@ -34,14 +34,20 @@
     {/if}
     <div class="description">
       <Copy>
-        <h2 class="title">{title}</h2>
+        {#if content.length > 0}
+          <a class="title-link" href={url}>
+            <h2 class="title">{title}</h2>
+          </a>
+        {:else}
+          <h2 class="title">{title}</h2>
+        {/if}
         <div class="meta">
           <span class="client">{client}</span>
           <div class="date-range">
             <Time timestamp={startDate} format="YYYY" />
             {#if !endDate}
               – <span class="end">Present</span>
-            {:else if startDate.slice(0,4) != endDate.slice(0,4)}
+            {:else if startDate.slice(0, 4) != endDate.slice(0, 4)}
               –<Time timestamp={endDate} format="YYYY" />
             {/if}
           </div>
@@ -70,7 +76,7 @@
   article {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid token.$line-bright;
+    border-block-start: 1px solid token.$line-bright;
     padding-block: 24px;
     row-gap: 16px;
 
@@ -107,6 +113,15 @@
       height: auto;
       max-height: 40vh;
       object-fit: contain;
+    }
+  }
+
+  .title-link {
+    @include reset.link;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-skip-ink: auto;
     }
   }
 

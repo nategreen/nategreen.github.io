@@ -15,6 +15,7 @@ $bg-alt: var(--bg-alt, color-mix(in oklab, #{$bg} 80%, #{$gray}));
 
 $text: var(--text, #{$neutral-dark});
 $text-dim: var(--text-dim, color-mix(in oklab, #{$bg} 20%, #{$text}));
+$text-green: var(--text-green, #{$dark-green});
 
 $link: var(--link, #{$blue});
 $link-hover: var(--link-hover, color-mix(in oklab, #{$link}, #{$text} 10%));

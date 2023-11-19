@@ -48,7 +48,7 @@
   .bubbles {
     display: flex;
     flex-direction: column;
-    gap: var(--arrow-size);
+    gap: calc(var(--arrow-size) - 1px);
   }
 
   p.intro-bubble {
@@ -106,7 +106,7 @@
     &::before {
       content: "";
       position: absolute;
-      top: calc((var(--arrow-size) * -1));
+      top: calc((var(--arrow-size) * -1) + 1px);
       background: token.$neutral-dark;
       -webkit-mask-image: url("bubble-connector.svg");
       mask-image: url("bubble-connector.svg");

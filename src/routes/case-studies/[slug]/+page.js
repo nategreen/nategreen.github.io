@@ -11,7 +11,7 @@ export async function load({ params }) {
         startDate
         endDate
         slug
-        content {
+        content(first: 50) {
           ... on TextContent {
             content
           }

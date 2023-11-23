@@ -80,6 +80,9 @@
     z-index: 0;
 
     figure.bleed & {
+      width: 100%;
+      height: auto;
+      max-height: 60vmin;
       object-fit: cover;
     }
 

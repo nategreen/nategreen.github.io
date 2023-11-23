@@ -37,6 +37,7 @@
     backdrop-filter: blur(3px) saturate(150%);
     padding-block-end: 1rem;
     overflow: hidden;
+    clear: both;
   }
 
   figure {

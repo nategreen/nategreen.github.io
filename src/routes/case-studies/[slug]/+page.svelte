@@ -30,12 +30,9 @@
       <section class="text">
         <SvelteMarkdown source={section.content} />
       </section>
-    {:else if section.asset}
+    {:else if section.cloudinaryAsset}
       <Figure
-        asset={section.asset[0].url}
-        assetAltText={section.asset[0].altText}
-        assetWidth={section.asset[0].width}
-        assetHeight={section.asset[0].height}
+        cloudinaryAsset={section.cloudinaryAsset}
         bleed={section.bleed}
         caption={section.caption}
         variant={section.style}

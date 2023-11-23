@@ -16,12 +16,7 @@ export async function load({ params }) {
             content
           }
           ... on Figure {
-            asset {
-              url
-              width
-              height
-              altText
-            }
+            cloudinaryAsset
             bleed
             caption
             style

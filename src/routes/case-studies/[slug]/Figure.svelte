@@ -1,13 +1,30 @@
 <script>
+  import { CldImage } from 'svelte-cloudinary';
   import SvelteMarkdown from 'svelte-markdown';
-  
-  export let asset, assetAltText, assetWidth, assetHeight, bleed, caption, variant;
+
+  export let bleed, caption, variant, cloudinaryAsset;
 </script>
 
 {#if variant == 'block'}
   <section class="block">
     <figure class:bleed>
-      <img src={asset} width={assetWidth} height={assetHeight} alt={assetAltText} />
+      {#if bleed}
+        <CldImage
+          class="figure-img"
+          src={cloudinaryAsset.public_id}
+          {...cloudinaryAsset}
+          format={cloudinaryAsset.format === 'svg' ? 'svg' : 'webp'}
+          style="object-fit:cover;max-height:60vmin;"
+        />
+      {:else}
+        <CldImage
+          class="figure-img"
+          src={cloudinaryAsset.public_id}
+          {...cloudinaryAsset}
+          format={cloudinaryAsset.format === 'svg' ? 'svg' : 'webp'}
+          style="object-fit:contain;max-height:60vmin;"
+        />
+      {/if}
       <figcaption>
         <SvelteMarkdown source={caption} />
       </figcaption>
@@ -15,7 +32,13 @@
   </section>
 {:else if variant == 'float'}
   <figure class="float" class:bleed>
-    <img src={asset} width={assetWidth} height={assetHeight} alt={assetAltText} />
+    <CldImage
+      class="figure-img"
+      src={cloudinaryAsset.public_id}
+      {...cloudinaryAsset}
+      format={cloudinaryAsset.format === 'svg' ? 'svg' : 'webp'}
+      sizes="100vw"
+    />
     <figcaption>
       <SvelteMarkdown source={caption} />
     </figcaption>
@@ -57,6 +80,7 @@
   }
 
   figure.float {
+    box-sizing: border-box;
     float: inline-end;
     margin-inline-end: var(--page-margins);
     margin-inline-start: 1rem;
@@ -72,7 +96,8 @@
   }
 
   img {
-		max-height: $bleed-max-height;
+    box-sizing: border-box;
+    max-height: $bleed-max-height;
     width: auto;
     max-width: 100%;
     height: auto;
@@ -83,11 +108,13 @@
       width: 100%;
       height: auto;
       max-height: 60vmin;
+      max-width: 100%;
       object-fit: cover;
     }
 
     figure.float & {
       max-height: $float-max-height;
+      object-fit: contain;
     }
   }
 

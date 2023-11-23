@@ -61,6 +61,7 @@
     margin-inline-end: var(--page-margins);
     margin-inline-start: 1rem;
     border-radius: 1rem;
+    max-width: 50%;
     background: color-mix(in oklab, #{token.$bg} 25%, transparent);
     -webkit-backdrop-filter: blur(3px) saturate(150%);
     backdrop-filter: blur(3px) saturate(150%);

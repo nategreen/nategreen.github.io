@@ -81,17 +81,20 @@
 
   figure.float {
     box-sizing: border-box;
-    float: inline-end;
-    margin-inline-end: var(--page-margins);
-    margin-inline-start: 1rem;
     border-radius: 1rem;
-    max-width: 50%;
     background: color-mix(in oklab, #{token.$bg} 25%, transparent);
     -webkit-backdrop-filter: blur(3px) saturate(150%);
     backdrop-filter: blur(3px) saturate(150%);
+    margin-inline-start: 1rem;
 
     &:not(.bleed) {
       padding-inline: 1rem;
+    }
+
+    @media (min-width: 30rem) {
+      float: inline-end;
+      margin-inline-end: var(--page-margins);
+      max-width: 50%;
     }
   }
 

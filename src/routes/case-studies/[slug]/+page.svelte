@@ -77,26 +77,31 @@
   :global(h2) {
     font-size: 1.75rem;
     margin-block-end: 1rem;
+    clear: both;
   }
 
   :global(h3) {
     font-size: 1.5rem;
     margin-block-end: 1rem;
+    clear: both;
   }
 
   :global(h4) {
     font-size: 1.375rem;
     margin-block-end: 1rem;
+    clear: both;
   }
 
   :global(h5) {
     font-size: 1.25rem;
     margin-block-end: 1rem;
+    clear: both;
   }
 
   :global(h6) {
     font-size: 1.125rem;
     margin-block-end: 1rem;
+    clear: both;
 }
   }
 

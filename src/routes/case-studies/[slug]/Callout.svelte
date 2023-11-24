@@ -1,8 +1,9 @@
 <script>
+  import SvelteMarkdown from 'svelte-markdown';
   import Lightbulb from 'virtual:icons/ph/lightbulb';
   import Confetti from 'virtual:icons/ph/confetti';
   import Warning from 'virtual:icons/ph/warning';
-  export let type, title;
+  export let type, title, content;
 </script>
 
 <aside
@@ -21,7 +22,7 @@
   </div>
   <h1 class="title">{title}</h1>
   <div class="content">
-    <slot />
+    <SvelteMarkdown source={content}/>
   </div>
 </aside>
 

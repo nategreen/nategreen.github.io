@@ -2,6 +2,7 @@
   import SvelteMarkdown from 'svelte-markdown';
   import Time from 'svelte-time';
   import Figure from './Figure.svelte';
+  import Callout from './Callout.svelte';
 
   export let data;
 </script>
@@ -26,17 +27,19 @@
     </div>
   </header>
   {#each data.caseStudy.content as section}
-    {#if section.content}
-      <section class="text">
-        <SvelteMarkdown source={section.content} />
-      </section>
-    {:else if section.cloudinaryAsset}
+    {#if section.cloudinaryAsset}
       <Figure
         cloudinaryAsset={section.cloudinaryAsset}
         bleed={section.bleed}
         caption={section.caption}
         variant={section.style}
       />
+    {:else if section.type}
+      <Callout {...section} />
+    {:else}
+      <section class="text">
+        <SvelteMarkdown source={section.content} />
+      </section>
     {/if}
   {/each}
 </article>
@@ -66,43 +69,43 @@
   .text {
     align-self: center;
     margin-block: 1rem;
-  
-  :global(p) {
-    margin-block: unset;
-    margin-block-end: 1rem;
-    font-size: 1rem;
-    line-height: 1.75;
-  }
 
-  :global(h2) {
-    font-size: 1.75rem;
-    margin-block-end: 1rem;
-    clear: both;
-  }
+    :global(p) {
+      margin-block: unset;
+      margin-block-end: 1rem;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
 
-  :global(h3) {
-    font-size: 1.5rem;
-    margin-block-end: 1rem;
-    clear: both;
-  }
+    :global(h2) {
+      font-size: 1.75rem;
+      margin-block-end: 1rem;
+      clear: both;
+    }
 
-  :global(h4) {
-    font-size: 1.375rem;
-    margin-block-end: 1rem;
-    clear: both;
-  }
+    :global(h3) {
+      font-size: 1.5rem;
+      margin-block-end: 1rem;
+      clear: both;
+    }
 
-  :global(h5) {
-    font-size: 1.25rem;
-    margin-block-end: 1rem;
-    clear: both;
-  }
+    :global(h4) {
+      font-size: 1.375rem;
+      margin-block-end: 1rem;
+      clear: both;
+    }
 
-  :global(h6) {
-    font-size: 1.125rem;
-    margin-block-end: 1rem;
-    clear: both;
-}
+    :global(h5) {
+      font-size: 1.25rem;
+      margin-block-end: 1rem;
+      clear: both;
+    }
+
+    :global(h6) {
+      font-size: 1.125rem;
+      margin-block-end: 1rem;
+      clear: both;
+    }
   }
 
   h1 {

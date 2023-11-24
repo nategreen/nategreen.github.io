@@ -46,6 +46,7 @@
 {/if}
 
 <style lang="scss">
+  @use "src/scss/mixins" as mixin;
   @use 'src/scss/tokens' as token;
 
   $bleed-max-height: 75vmin;
@@ -55,9 +56,8 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    background: color-mix(in oklab, #{token.$bg-alt} 50%, transparent);
-    -webkit-backdrop-filter: blur(3px) saturate(150%);
-    backdrop-filter: blur(3px) saturate(150%);
+    background: color-mix(in oklab, #{token.$bg-alt} 25%, transparent);
+    @include mixin.frosted;
     padding-block-end: 1rem;
     overflow: hidden;
     clear: both;
@@ -82,10 +82,9 @@
   figure.float {
     box-sizing: border-box;
     border-radius: 1rem;
-    background: color-mix(in oklab, #{token.$bg} 25%, transparent);
-    -webkit-backdrop-filter: blur(3px) saturate(150%);
-    backdrop-filter: blur(3px) saturate(150%);
     margin-inline-start: 1rem;
+    background: color-mix(in oklab, #{token.$bg} 25%, transparent);
+    @include mixin.frosted;
 
     &:not(.bleed) {
       padding-inline: 1rem;

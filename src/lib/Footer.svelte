@@ -10,6 +10,7 @@
 <style lang="scss">
 	@use 'src/scss/tokens' as token;
 	@use 'src/scss/reset' as reset;
+	@use 'src/scss/mixins' as mixin;
 
 	footer {
 		display: flex;
@@ -17,10 +18,9 @@
 		padding-inline: var(--page-margins);
 		padding-block: 32px;
 		text-align: center;
-		background: color-mix(in oklab, token.$bg-alt 50%, transparent);
-		-webkit-backdrop-filter: blur(3px);
-		backdrop-filter: blur(3px);
+		background: color-mix(in oklab, token.$bg-alt 50%, transparent);		
 		color: token.$text-dim;
+		@include mixin.frosted;
 	}
 
 	a {

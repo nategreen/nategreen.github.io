@@ -29,7 +29,7 @@
   <div class="row">
     {#if cover.url}
       <div class="image">
-        <CldImage src={cloudinaryCover.public_id} {...cloudinaryCover} alt={cover.alt} />
+        <CldImage src={cloudinaryCover.public_id} {...cloudinaryCover} format="webp" alt={cover.alt} />
       </div>
     {/if}
     <div class="description">

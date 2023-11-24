@@ -13,7 +13,7 @@
           class="figure-img"
           src={cloudinaryAsset.public_id}
           {...cloudinaryAsset}
-          format={cloudinaryAsset.format === 'svg' ? 'svg' : 'webp'}
+          format="webp"
           style="object-fit:cover;max-height:60vmin;"
         />
       {:else}
@@ -21,7 +21,7 @@
           class="figure-img"
           src={cloudinaryAsset.public_id}
           {...cloudinaryAsset}
-          format={cloudinaryAsset.format === 'svg' ? 'svg' : 'webp'}
+          format="webp"
           style="object-fit:contain;max-height:60vmin;"
         />
       {/if}
@@ -36,7 +36,7 @@
       class="figure-img"
       src={cloudinaryAsset.public_id}
       {...cloudinaryAsset}
-      format={cloudinaryAsset.format === 'svg' ? 'svg' : 'webp'}
+      format="webp"
       sizes="100vw"
     />
     <figcaption>

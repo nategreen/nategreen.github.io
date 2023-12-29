@@ -27,7 +27,7 @@
 
 <article>
   <div class="row">
-    {#if cover.url}
+    {#if cover && cover.url}
       <div class="image">
         <CldImage src={cloudinaryCover.public_id} {...cloudinaryCover} format="webp" alt={cover.alt} />
       </div>
@@ -48,7 +48,7 @@
             {#if !endDate}
               – <span class="end">Present</span>
             {:else if startDate.slice(0, 4) != endDate.slice(0, 4)}
-              –<Time timestamp={endDate} format="YYYY" />
+              – <Time timestamp={endDate} format="YYYY" />
             {/if}
           </div>
         </div>

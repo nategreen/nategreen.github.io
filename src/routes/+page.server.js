@@ -1,11 +1,20 @@
-import { gql, request } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
+import { dev } from '$app/environment';
+import { HYGRAPH_DEV_AUTH_TOKEN } from '$env/static/private';
 
 export async function load() {
-  const data = await request(
+  const hygraph = new GraphQLClient(
     'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clnhty2q88bul01uhf5m5dqrj/master',
+    {
+      headers: dev ? {
+        'Authorization': `Bearer ${HYGRAPH_DEV_AUTH_TOKEN}`,
+      } : {},
+    }
+  )
+  const data = await hygraph.request(
     gql`
       {
-        caseStudies(orderBy: endDate_DESC, stage: PUBLISHED) {
+        caseStudies(orderBy: endDate_DESC) {
           id
           title
           client
@@ -52,7 +61,7 @@ export async function load() {
           type
         }
       }
-    `
+    `,
   );
 
   return data;

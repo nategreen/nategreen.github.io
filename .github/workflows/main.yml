@@ -60,6 +60,7 @@ jobs:
         run: pnpm run build
         env:
           VITE_PUBLIC_CLOUDINARY_CLOUD_NAME: "dvzl5wy95"
+          HYGRAPH_DEV_AUTH_TOKEN: ""
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:

@@ -115,6 +115,7 @@
 			background: token.$green;
 			z-index: 1;
 			transition: background 0.125s ease-in-out, left 0.5s ease-in-out;
+			will-change: background, left;
 
 			@media (prefers-reduced-motion) {
 				opacity: 0;

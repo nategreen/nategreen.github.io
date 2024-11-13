@@ -3,7 +3,7 @@
   import CaseStudy from './CaseStudy.svelte';
   import FigmaCommunityResource from './FigmaCommunityResource.svelte';
   import Intro from './Intro.svelte';
-  export let data;
+  let { data } = $props();
 </script>
 
 <Intro />

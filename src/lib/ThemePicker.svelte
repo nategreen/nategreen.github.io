@@ -1,12 +1,12 @@
 <script>
   import { theme } from '../stores/theme';
 
-  let selectedTheme;
+  let selectedTheme = $state();
   const setTheme = (value) => theme.set(value);
   theme.subscribe((value) => (selectedTheme = value));
 </script>
 
-<form on:change={setTheme(selectedTheme)}>
+<form onchange={setTheme(selectedTheme)}>
   <input
     type="radio"
     name="theme"

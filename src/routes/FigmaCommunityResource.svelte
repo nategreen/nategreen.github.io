@@ -1,7 +1,13 @@
 <script>
   import SvelteMarkdown from 'svelte-markdown';
 
-  export let title, description, url, thumbnail, thumbnailAltText;
+  let {
+    title,
+    description,
+    url,
+    thumbnail,
+    thumbnailAltText
+  } = $props();
 </script>
 
 <article>

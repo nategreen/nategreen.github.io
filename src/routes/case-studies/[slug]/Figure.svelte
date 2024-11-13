@@ -2,7 +2,12 @@
   import { CldImage } from 'svelte-cloudinary';
   import SvelteMarkdown from 'svelte-markdown';
 
-  export let bleed, caption, variant, cloudinaryAsset;
+  let {
+    bleed,
+    caption,
+    variant,
+    cloudinaryAsset
+  } = $props();
 </script>
 
 {#if variant == 'block'}

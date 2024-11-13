@@ -3,7 +3,7 @@
   import Lightbulb from 'virtual:icons/ph/lightbulb';
   import Confetti from 'virtual:icons/ph/confetti';
   import Warning from 'virtual:icons/ph/warning';
-  export let type, title, content;
+  let { type, title, content } = $props();
 </script>
 
 <aside

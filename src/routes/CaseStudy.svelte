@@ -4,16 +4,33 @@
   import SvelteMarkdown from 'svelte-markdown';
   import { CldImage } from 'svelte-cloudinary';
   import Time from 'svelte-time';
-  export let title;
-  export let cta = 'See more';
-  export let slug;
-  export let cover;
-  export let client;
-  export let startDate;
-  export let endDate;
-  export let summary;
-  export let content;
-  export let cloudinaryCover;
+  /**
+   * @typedef {Object} Props
+   * @property {any} title
+   * @property {string} [cta]
+   * @property {any} slug
+   * @property {any} cover
+   * @property {any} client
+   * @property {any} startDate
+   * @property {any} endDate
+   * @property {any} summary
+   * @property {any} content
+   * @property {any} cloudinaryCover
+   */
+
+  /** @type {Props} */
+  let {
+    title,
+    cta = 'See more',
+    slug,
+    cover,
+    client,
+    startDate,
+    endDate,
+    summary,
+    content,
+    cloudinaryCover
+  } = $props();
   let url = `/case-studies/${slug}`;
 
   let ctaDisabled = () => {

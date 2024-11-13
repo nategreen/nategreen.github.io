@@ -12,7 +12,14 @@
     }
   });
 
-  import { loadSlim } from 'tsparticles-slim'; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
+  import { loadSlim } from 'tsparticles-slim';
+  /**
+   * @typedef {Object} Props
+   * @property {import('svelte').Snippet} [children]
+   */
+
+  /** @type {Props} */
+  let { children } = $props(); // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 
   let particlesConfig = {
     particles: {
@@ -62,7 +69,7 @@
   <div class="content">
     <Header />
     <main>
-      <slot />
+      {@render children?.()}
     </main>
     <Footer />
   </div>

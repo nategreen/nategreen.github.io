@@ -3,7 +3,7 @@
   import Button from "$lib/Button.svelte";
   import jobs from "./jobs";
 
-  let extraJobs = [];
+  let extraJobs = $state([]);
 
   function pushJob() {
     if (extraJobs.length != jobs.length) {
@@ -26,7 +26,7 @@
     {/each}
     <div class="actions">
       <Button label="What else do I do?" on:click={pushJob}/>
-      {#if extraJobs.length > 0 }<Button label="Okay, we get it" variant="text" on:click={clearExtraJobs}/>{/if}
+      {#if extraJobs.length > 0}<Button label="Okay, we get it" variant="text" on:click={clearExtraJobs}/>{/if}
     </div>
   </div>
 </section>

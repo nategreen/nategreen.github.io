@@ -1,13 +1,28 @@
 <script>
+	import { createBubbler } from 'svelte/legacy';
+
+	const bubble = createBubbler();
 	import { onMount } from 'svelte';
 	import Icon from './Icon.svelte';
 
-	export let label;
-	export let url = null
-	export let icon = null;
-  export let variant = "solid";
-	export let disabled = false;
-	let element;
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} label
+	 * @property {any} [url]
+	 * @property {any} [icon]
+	 * @property {string} [variant]
+	 * @property {boolean} [disabled]
+	 */
+
+	/** @type {Props} */
+	let {
+		label,
+		url = null,
+		icon = null,
+		variant = "solid",
+		disabled = false
+	} = $props();
+	let element = $state();
 </script>
 
 {#if url}
@@ -20,7 +35,7 @@
 		<span class="label">{label}</span>
 	</a>
 {:else}
-	<button {disabled} on:click bind:this={element} class="variant-{variant}">
+	<button {disabled} onclick={bubble('click')} bind:this={element} class="variant-{variant}">
 		{#if icon}
 			<span class="icon">
 				<Icon class="icon" {icon} weight="bold" />

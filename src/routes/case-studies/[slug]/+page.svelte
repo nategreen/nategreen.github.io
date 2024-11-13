@@ -4,7 +4,7 @@
   import Figure from './Figure.svelte';
   import Callout from './Callout.svelte';
 
-  export let data;
+  let { data } = $props();
 </script>
 
 <svelte:head>

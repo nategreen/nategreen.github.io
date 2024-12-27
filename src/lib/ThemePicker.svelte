@@ -6,6 +6,8 @@
   theme.subscribe((value) => (selectedTheme = value));
 </script>
 
+<button id="theme-picker" class={[selectedTheme, "theme"]} aria-label={`Theme (${selectedTheme})`}></button>
+
 <form onchange={setTheme(selectedTheme)}>
   <input
     type="radio"

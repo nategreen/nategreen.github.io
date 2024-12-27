@@ -1,8 +1,8 @@
-$green: var(--green, #26D97F);
-$dark-green: var(--dark-green, color-mix(in oklab, black 10%, #{$green}));
+$green: var(--green, #5BE4A0);
+$dark-green: var(--dark-green, #008542);
 $blue: var(--blue, #0080FF);
 $black: var(--black, #14191F);
-$gray: var(--gray, #52667A);
+$gray: var(--gray, #738291);
 $light-gray: var(--light-gray, #D9E5F2);
 $x-light-gray: var(--x-light-gray, #F0F5FA);
 $line: var(--line, #D9E5F2);
@@ -13,6 +13,7 @@ $neutral-dark: var(--neutral-dark, #14191F);
 
 $bg: var(--bg, white);
 $bg-alt: var(--bg-alt, color-mix(in oklab, #{$bg} 80%, #{$gray}));
+$bg-transparent: var(--bg-transparent, color-mix(in oklab, #{$bg-alt} 25%, transparent));
 
 $text: var(--text, #{$neutral-dark});
 $text-dim: var(--text-dim, color-mix(in oklab, #{$bg} 20%, #{$text}));
@@ -27,4 +28,6 @@ $line-bright: var(--line, #{$green});
 $line-active: var(--line-active, #{$blue});
 $line-dim: var(--line-dim, color-mix(in oklab, #{$bg} 50%, #{$line}));
 
-$button-bg: var(--button-bg, color-mix(in oklab, #{$text} 90%, #{$bg}))
+$button-bg: var(--button-bg, color-mix(in oklab, #{$text} 90%, #{$bg}));
+
+$shadow: var(--shadow, (0 0.25rem 0.5rem rgba(0, 0, 0, 0.15), 0 0.5rem 1rem rgba(0, 0, 0, 0.15), 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15)));

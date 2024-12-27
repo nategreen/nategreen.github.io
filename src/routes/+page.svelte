@@ -1,66 +1,14 @@
 <script>
-  import SvelteMarkdown from 'svelte-markdown';
-  import CaseStudy from './CaseStudy.svelte';
-  import FigmaCommunityResource from './FigmaCommunityResource.svelte';
-  import Intro from './Intro.svelte';
-  let { data } = $props();
+  import CaseStudyList from '../lib/CaseStudyList.svelte';
+  import Hero from '../lib/Hero.svelte';
+  import ProcessSection from '../lib/ProcessSection.svelte';
 </script>
 
-<Intro />
+<Hero />
 
-<section class="case-studies">
-  <h2 class="title">Case Studies</h2>
-  {#each data.caseStudies as story}
-    <CaseStudy {...story} />
-  {/each}
-</section>
-<section class="figma-community">
-  <h2 class="title">Figma Community</h2>
-  {#each data.figmaCommunityResources as resource}
-    <div class="resource">
-      <FigmaCommunityResource
-        url={resource.url}
-        title={resource.title}
-        description={resource.description}
-        thumbnail={resource.thumbnail.url}
-        thumbnailAltText={resource.thumbnail.altText}
-      />
-    </div>
-  {/each}
-</section>
-<section class="ux-stack-exchange">
-  <h2 class="title">
-    Questions and Answers on <a href="https://ux.stackexchange.com/users/59321/nate-green"
-      >UX StackExchange</a
-    >
-  </h2>
-  <div class="list answers">
-    <h3>Answers</h3>
-    <ul>
-      {#each data.stackExchangeItems.filter((i) => i.type === 'answer') as item}
-        <li class="item answer">
-          <a href={item.url}>
-            <h4 class="title">{item.title}</h4>
-          </a>
-          <SvelteMarkdown source={item.description} />
-        </li>
-      {/each}
-    </ul>
-  </div>
-  <div class="list questions">
-    <h3>Questions</h3>
-    <ul>
-      {#each data.stackExchangeItems.filter((i) => i.type === 'question') as item}
-        <li class="item question">
-          <a href={item.url}>
-            <h4 class="title">{item.title}</h4>
-          </a>
-          <SvelteMarkdown source={item.description} />
-        </li>
-      {/each}
-    </ul>
-  </div>
-</section>
+<CaseStudyList />
+
+<ProcessSection />
 
 <style lang="scss">
   @use 'src/scss/tokens' as token;
@@ -70,9 +18,9 @@
     margin-block-start: 32px;
     margin-inline: var(--page-margins);
 
-		.title {
-			margin-block-end: 1.5rem;
-		}
+    .title {
+      margin-block-end: 1.5rem;
+    }
   }
 
   h2.title {

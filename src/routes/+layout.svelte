@@ -19,8 +19,8 @@
    */
 
   /** @type {Props} */
-  let { children } = $props(); // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
-
+  let { children } = $props();
+  
   let particlesConfig = {
     particles: {
       size: { value: 2 },
@@ -69,7 +69,7 @@
   <div class="content">
     <Header />
     <main>
-      {@render children?.()}
+      {@render children()}
     </main>
     <Footer />
   </div>
@@ -81,20 +81,23 @@
   @use 'src/scss/tokens' as token;
 
   :root {
-    --page-margins: calc(0.5rem + 5vmin);
+    --page-margins: calc(1rem + 5vmin);
 
     @media (min-width: 60rem) {
-      --page-margins: calc(1rem + 10vmin);
+      --page-margins: calc(2rem + 10vmin);
     }
   }
 
   .wrapper {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
   }
 
   .content {
     contain: paint;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     container-type: inline-size;
     z-index: 1;

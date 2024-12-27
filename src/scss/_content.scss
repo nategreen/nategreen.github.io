@@ -1,0 +1,287 @@
+@use 'mixins' as mixin;
+@use 'tokens' as token;
+@use 'reset' as reset;
+
+p {
+  margin-inline: var(--page-margins);
+  line-height: 1.5;
+
+  @media screen and (min-width: 40rem) {
+    font-size: 1.5rem;
+  }
+}
+
+h2 {
+  @include reset.heading;
+
+  font-size: 2rem;
+  font-weight: 200;
+  margin-inline: var(--page-margins);
+  margin-top: 1.5em;
+
+  @media screen and (min-width: 40rem) {
+    font-size: 3.5rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 200;
+  color: token.$text-dim;
+  margin-inline: var(--page-margins);
+  margin-top: 2rem;
+
+  strong {
+    color: token.$text;
+    font-weight: inherit;
+  }
+
+  @media screen and (min-width: 40rem) {
+    font-size: 2.5rem;
+  }
+}
+
+figure {
+  @include mixin.frosted;
+  box-sizing: border-box;
+  background-color: color-mix(in oklab, token.$bg-alt 25%, transparent);
+  margin: 2rem 0;
+  padding-inline: 0;
+  padding-block: 1rem;
+  overflow: hidden;
+
+  img {
+    object-fit: contain;
+  }
+
+  &.bleed {
+    padding: 0;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  @media screen and (min-width: 40rem) {
+    padding-block: 2rem;
+
+    &.bleed {
+      padding: 0;
+    }
+  }
+}
+
+picture {
+  display: contents;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  min-height: 15rem;
+  max-height: 80vh;
+}
+
+.hero {
+  picture {
+    display: contents;
+  }
+
+  img {
+    object-fit: cover;
+    min-height: 10rem;
+  }
+
+  &.bleed {
+    padding: 0;
+
+    img {
+      object-fit: cover;
+    }
+  }
+}
+
+.figure-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-inline: var(--page-margins);
+  margin-bottom: 2rem;
+
+  figure {
+    box-sizing: border-box;
+    flex-basis: calc(50% - 1rem);
+    padding: 1rem;
+    margin: 0;
+    border-radius: 0.25rem;
+
+    &.bleed {
+      padding: 0;
+  
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+
+  &.three-up {
+    figure {
+      flex-grow: 1;
+
+      @media screen and (min-width: 40rem) {
+        flex-basis: calc(33.3333% - 2rem);
+        flex-grow: 1;
+      }
+    }
+  }
+
+  @media screen and (min-width: 40rem) {
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.blurb-list {
+  @include reset.list;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: var(--page-margins);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  @media screen and (min-width: 40rem) {
+    gap: 2rem;
+  }
+}
+
+.blurb-list-item {
+  @include reset.list-item;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.5;
+  text-align: center;
+
+  h3 {
+    @include reset.heading;
+    font-weight: 200;
+    font-size: 1.5rem;
+    text-align: center;
+    color: token.$text;
+
+    @media screen and (min-width: 40rem) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    @include reset.p;
+
+    text-wrap: balance;
+    text-wrap: pretty;
+
+    @media screen and (min-width: 40rem) {
+      font-size: 1.5rem;
+      max-width: 40rem;
+    }
+  }
+
+  @media screen and (min-width: 40rem) {
+    flex-basis: 40%;
+    flex-grow: 1;
+  }
+}
+
+.figure-with-text {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  max-width: 100%;
+  gap: 1rem;
+  margin-inline: var(--page-margins);
+  margin-bottom: 2rem;
+
+  .text {
+    margin: 0;
+    padding: 0;
+    grid-row: 1;
+  }
+
+  &.reverse .text {
+    @media screen and (min-width: 40rem) {
+      grid-column: 2;
+    }
+  }
+
+  h3 {
+    @include reset.heading;
+
+    font-size: 1.5rem;
+    line-height: 1.5;
+
+    @media screen and (min-width: 40rem) {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    @include reset.p;
+
+    font-size: 1rem;
+    line-height: 1.5;
+
+    @media screen and (min-width: 40rem) {
+      font-size: 1.5rem;
+    }
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    &.bleed {
+      padding: 0;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    @media screen and (min-width: 40rem) {
+      height: 32rem;
+      grid-column: auto;
+      grid-row: 1;
+    }
+  }
+
+  picture {
+    display: contents;
+  }
+
+  img {
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    @include mixin.filter-shadow;
+  }
+
+  @media screen and (min-width: 40rem) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
